@@ -18,19 +18,31 @@ public class ListBasedDiGraph implements DiGraph {
 	@Override
 	public Boolean removeNode(GraphNode node) {
 		// TODO Auto-generated method stub
+		//complete
+		GraphNode target = getNode(node.getValue());
+		if (target == null) return false;
+		for (GraphNode n : nodeList) {
+			n.removeNeighbor(target);
+		}
+		nodeList.remove(target);
 		return null;
 	}
 
 	@Override
 	public Boolean setNodeValue(GraphNode node, String newNodeValue) {
 		// TODO Auto-generated method stub
-		return null;
+		//complete
+		GraphNode target = getNode(node.getValue());
+		if (target == null) return false;
+		target.setValue(newNodeValue);
+		return true;
 	}
 
 	@Override
 	public String getNodeValue(GraphNode node) {
 		// TODO Auto-generated method stub
-		return null;
+		//complete
+		return node.getValue();
 	}
 
 	@Override
