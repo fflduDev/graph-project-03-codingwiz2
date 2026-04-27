@@ -63,7 +63,12 @@ public class ListBasedDiGraph implements DiGraph {
 	@Override
 	public Boolean removeEdge(GraphNode fromNode, GraphNode toNode) {
 		// TODO Auto-generated method stub
-		return null;
+		 GraphNode targetFromNode = getNode(fromNode.getValue());
+		 GraphNode targetToNode = getNode(toNode.getValue());
+
+		 if (targetFromNode == null || targetToNode == null) return false;
+
+		 return targetFromNode.removeNeighbor(targetToNode);
 	}
 
 	@Override
